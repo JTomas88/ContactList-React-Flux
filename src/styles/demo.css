@@ -1,0 +1,42 @@
+li{
+    height: 130px;
+    
+   
+}
+
+.list-group-item{
+    display: flex;
+    justify-content: end;
+    
+    
+}
+
+.filas{
+    display: flex;
+    justify-content: start;
+}
+
+.espacioFoto{
+    border: 1px black solid;
+    height: 100%;
+    width: 112px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    padding: 0;
+    border-radius: 50%;
+}
+
+p{
+    margin: 0;
+}
+
+.datoName{
+
+}
+
+.espacioDatos{
+    margin: 0;
+    text-align: left;
+    margin-left: 100px;
+}

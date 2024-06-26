@@ -31,6 +31,13 @@ const injectContext = PassedComponent => {
 			 * state.actions.loadSomeData(); <---- calling this function from the flux.js actions
 			 *
 			 **/
+			
+
+
+			/**
+			 * Accedemos a la función que tiene el servicio de mostrar la lista de contacto (creada en flux.js)
+			 */
+			state.actions.obtenerListaContactos(state.store.miUsuario);
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

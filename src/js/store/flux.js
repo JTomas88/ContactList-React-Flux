@@ -12,9 +12,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
+			],
+			miUsuario: "tom",
+
+			camposDelContacto: {
+				name: "",
+				phone: "",
+				email: "",
+				address: ""
+			},
+
+			listaContactos: {},
+
 		},
+
 		actions: {
+
+			/**
+			 * llamamos al servicio para obtener la agenda dentro de una función
+			 * @param {slug}  recibe el nombre del usuario. 
+			 * @returns la lista de contacto que tenga mi usuario (slug) asignada. 
+			 */
+			obtenerListaContactos: (slug) => {
+				console.log(slug);
+				return fetch(`https://playground.4geeks.com/contact/agendas/${slug}/contacts`, {
+
+					method: 'GET',
+				}).then(respuesta => {
+					if (!respuesta.ok) {
+						throw new Error('No fue ok ' + respuesta.statusText)
+					}
+					return respuesta.json()
+
+				}).then(datosRespuesta => {
+					console.log('respuesta del servicio: ', datosRespuesta);
+					setStore({ listaContactos: datosRespuesta });
+					return datosRespuesta;
+				})
+					.catch(esError => {  //catch captura el error del if si fueserroneo, no es obligatorio pero si buena práctica
+						console.log('Error: ' + esError);
+					})
+			},
+
+			crearContactoNuevo
+
+
 			// Use getActions to call a function within a fuction
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
